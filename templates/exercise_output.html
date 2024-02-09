@@ -3,14 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise Output Portel</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-    <h1>{{title}}</h1>
-    <ul>
-        {% for item in items %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
+    <h1>{{ title }}</h1>
+
+    {% for exercise in items %}
+        <div>
+            <p>The details of {{ exercise.index }} element</p>
+            <p>The name of Exercise = {{ exercise.name }}</p>
+            <p>The equipment used = {{ exercise.equipment }}</p>
+            <p>URL = <img src="{{ exercise.url }}" alt="{{ exercise.name }} GIF"></p>
+            <p>Target = {{ exercise.target }}</p>
+            <p>The secondary muscles which would be developed are:</p>
+            <ul>
+                {% for muscle in exercise.secondary_muscles %}
+                    <li>{{ muscle }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Workout Instructions</h3>
+            
+            <ol>
+                {% for step in exercise.instructions %}
+                    <li>{{ step }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% endfor %}
 </body>
 </html>
