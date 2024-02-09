@@ -27,21 +27,31 @@
     .container {
       display: flex;
       justify-content: space-around;
+      align-items: center;
       margin: 20px;
     }
 
     .box {
       flex: 1;
+      margin: 10px;
       padding: 20px;
       background-color: #b29999;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       transition: background-color 0.3s ease;
+      font-size: 18px;
     }
 
     .box:hover {
       background-color: #f0f0f0;
+    }
+
+    #motivationalQuotes {
+      text-align: center;
+      margin: 20px;
+      font-size: 24px;
+      color: #fff;
     }
   </style>
 
@@ -82,8 +92,6 @@
 </head>
 
 <body>
-  <div id="motivationalQuotes" style="text-align: center; margin-top: 20px;"></div>
-
   <h1>Health And Fitness</h1>
   <h2>Health parameter selection.</h2>
 
@@ -98,9 +106,12 @@
       <h3>BMI</h3>
     </div>
     <div class="box" onclick="selectOption(4)">
-      <h3>Meditataion</h3>
+      <h3>Meditation</h3>
     </div>
   </div>
+
+  <!-- Container to display motivational quotes -->
+  <div id="motivationalQuotes"></div>
 
   <form id="healthForm" action="/process" method="post">
     <input type="hidden" name="option" id="selectedOption">
