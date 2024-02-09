@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,8 +44,46 @@
       background-color: #f0f0f0;
     }
   </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    // Function to load and display motivational quotes
+    function loadMotivationalQuotes() {
+      var category = 'health';
+      $.ajax({
+        method: 'GET',
+        url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
+        headers: { 'X-Api-Key': 'Bv9ERavHt0J9zaSth2kNQQ==gvnOnIJgrozJmHQK' },
+        contentType: 'application/json',
+        success: function (result) {
+          // Display quotes at the top
+          var quotesContainer = document.getElementById('motivationalQuotes');
+          if (quotesContainer) {
+            quotesContainer.innerHTML = '<p>' + result[0].quote + ' - ' + result[0].author + '</p>';
+          }
+        },
+        error: function ajaxError(jqXHR) {
+          console.error('Error: ', jqXHR.responseText);
+        }
+      });
+    }
+
+    // Execute the function when the page loads
+    document.addEventListener('DOMContentLoaded', function () {
+      loadMotivationalQuotes();
+    });
+
+    // Function to select health options
+    function selectOption(option) {
+      document.getElementById("selectedOption").value = option;
+      document.getElementById("healthForm").submit();
+    }
+  </script>
 </head>
+
 <body>
+  <!-- Container to display motivational quotes -->
+  <div id="motivationalQuotes" style="text-align: center; margin-top: 20px;"></div>
 
   <h1>Health And Fitness</h1>
   <h2>Health parameter selection.</h2>
@@ -65,13 +104,6 @@
     <input type="hidden" name="option" id="selectedOption">
     <input type="submit" value="Submit" style="display:none">
   </form>
-
-  <script>
-    function selectOption(option) {
-      document.getElementById("selectedOption").value = option;
-      document.getElementById("healthForm").submit();
-    }
-  </script>
-
 </body>
+
 </html>

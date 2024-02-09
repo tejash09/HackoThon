@@ -65,7 +65,7 @@
 
     {% for exercise in items %}
         <div>
-            <h2>The details of {{ exercise.index }} exercise</h2>
+            <h2>The details of exercise - {{ exercise.index }}</h2>
             <p>The Exercise name = {{ exercise.name }}</p>
             <p>The equipment used = {{ exercise.equipment }}</p>
             <p><img src="{{ exercise.url }}" alt="{{ exercise.name }} GIF"></p>
