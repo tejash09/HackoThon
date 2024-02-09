@@ -17,8 +17,10 @@ def process():
         return render_template('exercise_input.html')
     elif(option =='2'):
         return render_template('Food_input.html')
-    else:
+    elif(option =='3'):
         return render_template('bmi_input.html')
+    else:
+        return render_template('meditation.html')
 
 @app.route('/submit',methods=['POST'])
 def submit():
@@ -81,7 +83,7 @@ def submit():
         except:
             return render_template('error.html',error = "ENTER VALID INPUT DETAILS")
     
-    else:
+    elif(option=='3'):
         try:
             url = "https://fitness-calculator.p.rapidapi.com/"
             
@@ -115,6 +117,12 @@ def submit():
             return render_template('bmi_output.html',title='Body Mass Index',items=bmi_all_details)
         except:
             return render_template('error.html',error = 'INVALID INPUT DETAILS FOR BODY MASS INDEX CALCULATION OR SERVER UNAVAILABLE')
+    elif(option == '4'):
+        try:
+            return render_template('meditation.html',title='Guided Meditation')
+        except:
+            return render_template('error.html',error = 'INVALID INPUT DETAILS FOR BODY MASS INDEX CALCULATION OR SERVER UNAVAILABLE')
+
 
 
 urll='http://127.0.0.1:5000'
