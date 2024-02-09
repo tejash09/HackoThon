@@ -100,18 +100,18 @@ def submit():
             
             bmis = response.json()
             bmi_all_details=[]
-            bmi_all_details.append('age of the person'+str(age))
-            bmi_all_details.append('gender of the person'+str(gender))
-            bmi_all_details.append('height of the person'+str(height))
-            bmi_all_details.append('weight of the person'+str(weight))
+            bmi_all_details.append('age of the person = '+str(age))
+            bmi_all_details.append('gender of the person = '+str(gender))
+            bmi_all_details.append('height of the person = '+str(height))
+            bmi_all_details.append('weight of the person = '+str(weight))
             
-            bmi_all_details.append("BMI of the Person ="+str(bmis['data']['bmi']))
-            bmi_all_details.append("BMI Range of the person ="+str(bmis['data']['healthy_bmi_range']))
-            bmi_all_details.append("Health of the person ="+str(bmis['data']['health']))
+            bmi_all_details.append("BMI of the Person = "+str(bmis['data']['bmi']))
+            bmi_all_details.append("BMI Range of the person = "+str(bmis['data']['healthy_bmi_range']))
+            bmi_all_details.append("Health of the person = "+str(bmis['data']['health']))
             querystring={"gender":gender,"height":height}
             response=requests.get(url+"idealweight",headers=headers,params=querystring)
             bmis = response.json()
-            bmi_all_details.append("Idealweight of the person ="+str(bmis['data']['Robinson']))
+            bmi_all_details.append("Idealweight of the person = "+str(bmis['data']['Robinson']))
             return render_template('bmi_output.html',title='Body Mass Index',items=bmi_all_details)
         except:
             return render_template('error.html',error = 'INVALID INPUT DETAILS FOR BODY MASS INDEX CALCULATION OR SERVER UNAVAILABLE')
