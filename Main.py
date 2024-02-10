@@ -56,7 +56,7 @@ def submit():
             return render_template('exercise_output.html', title="ALL EXERCISE DETAILS", items=exercise_all_details)
 
         except Exception as e :
-                return render_template('error.html', error=f"Error: {str(e)}")
+                return render_template('error.html', error="Error: "+str(e))
 
     elif(option =='2'):
         try:
