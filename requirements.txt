@@ -65,7 +65,7 @@ PySocks==1.7.1
 pyte==0.8.1
 python-socks==2.4.3
 regex==2023.10.3
-requests==2.31.0
+requests==2.26.0
 rich==13.7.0
 rsa==4.9
 selenium==4.16.0
